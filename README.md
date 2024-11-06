@@ -1,4 +1,4 @@
-```markdown
+
 # Ultimate JavaScript Framework
 
 Welcome to the **Ultimate JavaScript Framework™**. This simple and powerful framework is designed to handle HTML components and manage reactive state, all without the usual complexity of traditional frameworks.
@@ -159,4 +159,3 @@ A: When the state changes, all subscribed components are notified, allowing them
 This framework provides a robust foundation for managing components and state in JavaScript applications.
 ``` 
 
-All content is in a single continuous file, without any interruptions. Let me know if further adjustments are needed!
