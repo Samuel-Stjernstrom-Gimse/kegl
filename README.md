@@ -1,5 +1,3 @@
-Apologies for the confusion! Here’s the entire content in a **single, uninterrupted Markdown file format** as you requested:
-
 ```markdown
 # Ultimate JavaScript Framework
 
