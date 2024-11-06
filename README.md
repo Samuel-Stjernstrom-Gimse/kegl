@@ -1,5 +1,5 @@
 
-# Ultimate JavaScript Framework
+# KEGL JavaScript Framework
 
 Welcome to the **Ultimate JavaScript Framework™**. This simple and powerful framework is designed to handle HTML components and manage reactive state, all without the usual complexity of traditional frameworks.
 
