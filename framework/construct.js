@@ -1,6 +1,5 @@
 // Construct.js
 import State from "./state.js";
-
 /**
  * Base component class for creating custom elements with child component management.
  */
@@ -57,7 +56,6 @@ class Construct extends HTMLElement {
         this.shadowRoot.innerHTML = html;
         this.renderChildren(); // Ensure children are rendered after the update
     }
-
 }
 
 customElements.define('x-construct', Construct);
