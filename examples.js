@@ -35,7 +35,7 @@ customElements.define('my-component', MyComponent)
 
 <my-component params='100'></my-component>
 
-<script type="module" src="./example.js"></script>
+<script type="module" src="./examples.js"></script>
 </body>
 </html>
 
