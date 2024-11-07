@@ -1,161 +1,188 @@
+# Kegl Framework - Super Lightweight Vanilla JavaScript Framework
 
-# KEGL JavaScript Framework
+Welcome to **Kegl** - the world's first framework! designed to keep things as simple as possible. No compilers, no transpilers, and no headache. Just pure Vanilla JavaScript and a sprinkle of Kegl magic for building reactive, component-driven web applications. Perfect for those who like to stay in control, mix and match, or even throw in a little jQuery if you’re feeling nostalgic.
 
-Welcome to the **Ultimate JavaScript Framework™**. This simple and powerful framework is designed to handle HTML components and manage reactive state, all without the usual complexity of traditional frameworks.
+---
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [Component Class](#component-class)
-   - [Constructor](#constructor)
-   - [Methods](#methods)
-3. [State Class](#state-class)
-   - [Constructor](#state-constructor)
-   - [Methods](#state-methods)
-4. [Installation](#installation)
-5. [FAQ](#faq)
+- [Introduction](#introduction)
+- [Key Features](#key-features)
+- [Installation](#installation)
+- [Core Concepts](#core-concepts)
+  - [Construct](#construct)
+  - [Component](#component)
+  - [State](#state)
+- [Examples](#examples)
+  - [Creating Components](#creating-components)
+  - [State Management](#state-management)
+- [API Documentation](#api-documentation)
+  - [Construct](#construct-api)
+  - [Component](#component-api)
+  - [State](#state-api)
+- [Why Kegl?](#why-kegl)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
 ## Introduction
 
-This framework provides two main classes: **Component** and **State**. The `Component` class allows for rendering HTML content, managing child components, and securing against XSS attacks. The `State` class offers reactive state management, allowing components to subscribe to state changes and automatically update.
+The **Kegl Framework** is a super lightweight JavaScript framework that provides the bare minimum needed to create reactive, component-based applications without any build step. Inspired by the simple things in life (like duct tape and Vanilla JS), Kegl aims to let you focus on your project, without dealing with a bloated toolchain.
 
-## Component Class
+Whether you're looking to enhance an existing app or build a single-page application from scratch, Kegl lets you decide when to use it and when to go vanilla. Because sometimes, all you need is just a little help from a tiny framework friend.
 
-The `Component` class is designed to manage HTML elements, render content, and handle child components. It ensures the component's HTML is sanitized for security and is inserted correctly into the DOM.
+---
 
-### Constructor
+## Key Features
 
-```javascript
-constructor(containerId)
-```
+- **No Build Tools Required**: Just import and start creating.
+- **Custom Components**: Build reusable components with ease.
+- **Reactive State**: Manage state effortlessly, with subscriptions that auto-re-render.
+- **Shadow DOM Support**: Keep your styles and components neatly encapsulated.
+- **Extremely Lightweight**: No dependencies and minimal file size.
+- **Mix and Match with Vanilla JS**: Use it as a helper, or go all in with Kegl.
 
-- **containerId**: The ID of the DOM element where the component will be rendered.
-- **Throws an error** if the specified container ID is not found in the DOM.
-
-### Methods
-
-#### setChildren
-
-```javascript
-setChildren(childrenComponent)
-```
-
-- **childrenComponent**: An array of `Component` instances.
-- Sets the child components of the current component and calls their `render` methods.
-
-#### render
-
-```javascript
-render()
-```
-
-- Renders the component by updating the container's HTML with the generated content from `generateHTML`.
-
-#### generateHTML
-
-```javascript
-generateHTML()
-```
-
-- Generates the HTML for the component.
-- Returns an empty string by default, allowing for easy customization in derived classes.
-
-#### unHackify
-
-```javascript
-unHackify(htmlDirty)
-```
-
-- **htmlDirty**: The HTML content to sanitize.
-- Removes potentially harmful scripts and inline event handlers to prevent XSS attacks.
-- Escapes special HTML characters for security.
-- Returns a cleaned HTML string, safe for rendering.
-
-#### update
-
-```javascript
-update(html)
-```
-
-- **html**: The sanitized HTML string to set as the container's inner HTML.
-- Updates the container's inner HTML content.
-
-## State Class
-
-The `State` class provides reactive state management, allowing components to subscribe to changes and automatically update when the state changes.
-
-### Constructor
-
-```javascript
-constructor(initialState)
-```
-
-- **initialState**: The initial state value.
-- Stores the initial state and prepares an empty list for subscribers.
-
-### Methods
-
-#### get value
-
-```javascript
-get value()
-```
-
-- Returns the current state value.
-
-#### set value
-
-```javascript
-set value(newValue)
-```
-
-- **newValue**: The new state value.
-- Updates the state if `newValue` is different from the current state.
-- Calls `notify()` to update all subscribers.
-
-#### subscribe
-
-```javascript
-subscribe(subscriber)
-```
-
-- **subscriber**: A function to be called on state changes.
-- Adds a function to the subscribers list, which is called whenever the state updates.
-
-#### subRender
-
-```javascript
-subRender(subscriber)
-```
-
-- **subscriber**: An object that implements a `render` method.
-- Adds a function to call `render()` on the subscriber when the state changes.
-
-#### notify
-
-```javascript
-notify()
-```
-
-- Notifies all subscribers of a state change, calling each subscriber function.
+---
 
 ## Installation
 
-Simply add the `Component` and `State` classes to your JavaScript project. No additional libraries or dependencies are required.
+Simply clone the repo or copy the files directly into your project.
 
-## FAQ
+```bash
+git clone https://github.com/yourusername/kegl.git
+```
 
-**Q: Can I nest components?**  
-A: Yes, `setChildren` allows you to add child components, which will be automatically rendered.
+Then, import the files you need in your scripts.
 
-**Q: Is the `unHackify` method necessary?**  
-A: Yes, `unHackify` ensures any potentially harmful HTML or JavaScript is sanitized before rendering, helping to protect against XSS attacks.
+```javascript
+import Component from "./path/to/Component.js";
+import Construct from "./path/to/Construct.js";
+import State from "./path/to/State.js";
+```
 
-**Q: How does state reactivity work?**  
-A: When the state changes, all subscribed components are notified, allowing them to re-render as needed.
+That's it! You’re ready to start building with Kegl.
 
-This framework provides a robust foundation for managing components and state in JavaScript applications.
-``` 
+---
 
+## Core Concepts
+
+### Construct
+
+`Construct` is the base class for all Kegl components. It manages a component's lifecycle and provides methods for rendering and managing child components.
+
+### Component
+
+`Component` extends `Construct` and adds support for reactive properties and attribute handling. This is your go-to class for creating custom elements that react to state changes.
+
+### State
+
+The `State` class enables reactive state management. When the state value changes, all components subscribed to that state will automatically re-render.
+
+---
+
+## Examples
+
+### Creating Components
+
+Here's how you can create a simple `Kegl` component:
+
+```javascript
+import Component from "./Component.js";
+
+class MyComponent extends Component {
+    constructor() {
+        super();
+        this.state = new State({ name: "world" });
+        this.state.subRender(this); // auto-renders on state change
+    }
+
+    render() {
+        this.update(`<h1>Hello, ${this.state.value.name}!</h1>`);
+    }
+}
+
+customElements.define("my-component", MyComponent);
+```
+
+And in your HTML:
+
+```html
+<my-component></my-component>
+```
+
+### State Management
+
+`State` makes managing and re-rendering components a breeze:
+
+```javascript
+const state = new State({ count: 0 });
+
+state.subscribe(() => {
+    console.log(`The count is now ${state.value.count}`);
+});
+
+// Update state
+state.value = { count: state.value.count + 1 };
+```
+
+---
+
+## API Documentation
+
+### Construct API
+
+#### `connectedCallback()`
+Invoked when the component is added to the DOM. Automatically triggers the first render.
+
+#### `render()`
+Defines the initial rendering logic for the component. Override this in subclasses to define custom content.
+
+#### `update(html)`
+Updates the inner HTML of the shadow root. Takes a string as `html` and applies it to the component.
+
+### Component API
+
+#### `static get observedAttributes()`
+Lists attributes that the component will observe for changes. Override in custom components to add your own observed attributes.
+
+#### `attributeChangedCallback(name, oldValue, newValue)`
+Handles changes to observed attributes, letting you respond to attribute updates.
+
+#### `attachEvent(target, listener, callback)`
+Easily attaches an event listener to a shadow DOM element by targeting it with a selector, specifying an event type, and providing a callback function.
+
+### State API
+
+#### `get value()`
+Returns the current state value.
+
+#### `set value(newValue)`
+Updates the state value and notifies all subscribers if the value has changed.
+
+#### `subscribe(subscriber)`
+Registers a subscriber callback that will be notified when the state changes.
+
+#### `subRender(subscriber)`
+Registers a component to automatically call its `render` method upon state changes.
+
+#### `notify()`
+Triggers each subscriber to execute its callback, enabling reactivity.
+
+---
+
+## Why Kegl?
+
+In a world full of big, complicated frameworks, sometimes you just need something small. Kegl is like a tiny toolkit that fits in your back pocket. You can pull it out whenever you need a little extra help without getting tangled in a framework's world. Add it to existing projects or start from scratch with Kegl at the core. Either way, it's here to make development faster, simpler, and a bit more fun.
+
+---
+
+## Contributing
+
+All contributions are welcome! Feel free to submit issues, feature requests, or pull requests.
+
+---
+
+## License
+
+Kegl is open-source under the MIT License. So go forth and build awesome things!
