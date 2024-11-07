@@ -1,4 +1,4 @@
-# Kegl Framework - Super Lightweight Vanilla JavaScript Framework
+# Kegl - Lightweight Vanilla JavaScript Framework
 
 Welcome to **Kegl** - the world's first framework! designed to keep things as simple as possible. No compilers, no transpilers, and no headache. Just pure Vanilla JavaScript and a sprinkle of Kegl magic for building reactive, component-driven web applications. Perfect for those who like to stay in control, mix and match, or even throw in a little jQuery if you’re feeling nostalgic.
 
