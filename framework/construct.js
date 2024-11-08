@@ -16,7 +16,7 @@ class Construct extends HTMLElement {
     }
 
     render() {
-        this.update(``)
+        this.html(``)
     }
 
     /**
@@ -52,7 +52,7 @@ class Construct extends HTMLElement {
      *
      * @param {string} html - HTML content to update the shadow root with.
      */
-    update(html) {
+    html(html) {
         this.shadowRoot.innerHTML = html;
         this.renderChildren(); // Ensure children are rendered after the update
     }
