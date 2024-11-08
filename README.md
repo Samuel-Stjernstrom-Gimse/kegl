@@ -95,9 +95,7 @@ class MyComponent extends Component {
             <button id="btn">count${this.subState.value} </button>
         `)
 
-        const handleClick = () => {
-            this.subState.value = this.subState.value + 1;
-        }
+        const handleClick = _ => this.subState.value ++ 
 
         this.attachEvent('#btn', 'click', () => handleClick() );
     }
@@ -108,7 +106,7 @@ customElements.define('my-component', MyComponent);
 And in your HTML:
 
 ```html
-<my-component params='['heading']'></my-component>
+<my-component params='['Header']'></my-component>
 ```
 
 ### State Management
