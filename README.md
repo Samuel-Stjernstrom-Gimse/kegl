@@ -106,7 +106,7 @@ customElements.define('my-component', MyComponent);
 And in your HTML:
 
 ```html
-<my-component params='['Header']'></my-component>
+<my-component params='["Header"]'></my-component>
 ```
 
 ### State Management
