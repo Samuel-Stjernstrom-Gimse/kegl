@@ -5,7 +5,7 @@ class MyComponent2 extends Component {
         super();
     }
     render() {
-        this.update(`<div id="div2">${this.params.value[0]}</div>`)
+        this.html(`<div id="div2">${this.params.value[0]}</div>`)
         console.log(this.params.value);
         this.shadowRoot.querySelector("#div2").addEventListener("click", () => console.log('hello'));
     }
@@ -20,7 +20,7 @@ class MyComponent extends Component {
             }).join('')
         }
 
-        this.update(`
+        this.html(`
             <div>
             <button id="div2">click me state :${this.subState.value} </button>
             ${this.params.value}
@@ -31,7 +31,7 @@ class MyComponent extends Component {
         const inputElement = document.getElementById("input")
 
         const handleState = () => {
-            this.params.value = 'hey'
+            this.params.value = 'gay'
             this.subState.value = this.subState.value + 1;
         }
 
