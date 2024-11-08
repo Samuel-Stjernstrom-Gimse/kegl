@@ -88,21 +88,17 @@ The `State` class enables reactive state management. When the state value change
 Here's how you can create a simple `Kegl` component:
 
 ```javascript
-import Component from "./Component.js";
-
 class MyComponent extends Component {
     constructor() {
         super();
-        this.state = new State({ name: "world" });
-        this.state.subRender(this); // auto-renders on state change
     }
-
     render() {
-        this.update(`<h1>Hello, ${this.state.value.name}!</h1>`);
+        this.update(`<div id="div2">${this.params.value[0]}</div>`)
+        console.log(this.params.value);
+        this.shadowRoot.querySelector("#div2").addEventListener("click", () => console.log('hello'));
     }
 }
-
-customElements.define("my-component", MyComponent);
+customElements.define('my-component1', MyComponent);
 ```
 
 And in your HTML:
