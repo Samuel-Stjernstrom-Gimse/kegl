@@ -91,7 +91,8 @@ Here's how you can create a simple `Kegl` component:
 class MyComponent extends Component {
     render() {
         this.update(`<div id="div2">${this.params.value[0]}</div>`)
-        this.shadowRoot.querySelector("#div2").addEventListener("click", () => console.log('hello'));
+        
+        attachEvent('#div2', 'click', () => console.log('hello'))
     }
 }
 customElements.define('my-component1', MyComponent);
