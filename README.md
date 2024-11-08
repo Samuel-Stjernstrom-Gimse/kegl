@@ -90,7 +90,7 @@ Here's how you can create a simple `Kegl` component:
 ```javascript
 class MyComponent extends Component {
     render() {
-        this.update(`<div id="div2">${this.params.value[0]}</div>`)
+        this.html(`<div id="div2">${this.params.value[0]}</div>`)
         
         attachEvent('#div2', 'click', () => console.log('hello'))
     }
@@ -131,7 +131,7 @@ Invoked when the component is added to the DOM. Automatically triggers the first
 #### `render()`
 Defines the initial rendering logic for the component. Override this in subclasses to define custom content.
 
-#### `update(html)`
+#### `html(html)`
 Updates the inner HTML of the shadow root. Takes a string as `html` and applies it to the component.
 
 ### Component API
