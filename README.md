@@ -101,7 +101,7 @@ customElements.define('my-component1', MyComponent);
 And in your HTML:
 
 ```html
-<my-component></my-component>
+<my-component params='['hello']'></my-component>
 ```
 
 ### State Management
