@@ -90,18 +90,25 @@ Here's how you can create a simple `Kegl` component:
 ```javascript
 class MyComponent extends Component {
     render() {
-        this.html(`<div id="div2">${this.params.value[0]}</div>`)
-        
-        attachEvent('#div2', 'click', () => console.log('hello'))
+        this.html(`
+            <h1>${this.params.value}</h1>
+            <button id="btn">count${this.subState.value} </button>
+        `)
+
+        const handleClick = () => {
+            this.subState.value = this.subState.value + 1;
+        }
+
+        this.attachEvent('#btn', 'click', () => handleClick() );
     }
 }
-customElements.define('my-component1', MyComponent);
+customElements.define('my-component', MyComponent);
 ```
 
 And in your HTML:
 
 ```html
-<my-component params='['hello']'></my-component>
+<my-component params='['heading']'></my-component>
 ```
 
 ### State Management
